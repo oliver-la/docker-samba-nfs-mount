@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+  samba:
+    build: .
+    devices:
+      - /dev/fuse
+    restart: unless-stopped
+    hostname: Samba
+    environment:
+      USER1: 'bob;secret'
+      USERID: 1000
+      GROUPID: 1000
+      SHARE1: 'WebRoot;/shares/www;yes;no;no;bob'
+    volumes:
+      - $HOME:/mnt
+    cap_add:
+      - SYS_ADMIN
+    ports:
+      - 445:445

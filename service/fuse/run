@@ -1,0 +1,2 @@
+#!/bin/sh
+fuse_xattrs -f -o allow_other /mnt /shares >/dev/null 2>&1
